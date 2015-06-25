@@ -6,10 +6,6 @@ li.list-group-item {
 	margin-bottom: 10px;
 }
 
-.tickets {
-	width: 45px !important;
-}
-
 .table,
 .table-responsive {
     margin-top: 10px;
@@ -18,4 +14,12 @@ li.list-group-item {
 .filter .panel {
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+.panel-search-result {
+    padding: 10px;
+}
+
+dd {
+    margin-left: 15px;
 }

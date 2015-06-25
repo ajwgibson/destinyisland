@@ -9,5 +9,5 @@ class Booking extends Eloquent {
 	{
 		return $this->hasMany('Registration');
 	}
-	
+
 }
