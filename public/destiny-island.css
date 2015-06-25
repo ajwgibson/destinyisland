@@ -1,0 +1,21 @@
+.page-header {
+	margin-top: 70px;
+}
+
+li.list-group-item {
+	margin-bottom: 10px;
+}
+
+.tickets {
+	width: 45px !important;
+}
+
+.table,
+.table-responsive {
+    margin-top: 10px;
+}
+
+.filter .panel {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
