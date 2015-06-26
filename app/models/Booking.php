@@ -45,29 +45,38 @@ class Booking extends Eloquent {
     // Returns the most recent contact name from daily registrations or the original from the booking
     public function most_recent_contact_name()
     {
-        $name = $this->contact_name;
+        $registration = $this->most_recent_registration();
 
-        if ($this->registrations->count() > 0)
-        {
-            $latest_registration = $this->registrations()->orderBy('created_at', 'desc')->first();
-            if ($latest_registration->contact_name) $name = $latest_registration->contact_name;
-        }
-
-        return $name;
+        if ($registration && $registration->contact_name) return $registration->contact_name;
+        else return $this->contact_name;
     }
 
-    // Returns the most recent contact name from daily registrations or the original from the booking
+    // Returns the most recent contact number from daily registrations or the original from the booking
     public function most_recent_contact_number()
     {
-        $number = $this->contact_number;
+        $registration = $this->most_recent_registration();
 
-        if ($this->registrations->count() > 0)
-        {
-            $latest_registration = $this->registrations()->orderBy('created_at', 'desc')->first();
-            if ($latest_registration->contact_number) $number = $latest_registration->contact_number;
-        }
+        if ($registration && $registration->contact_number) return $registration->contact_number;
+        else return $this->contact_number;
+    }
 
-        return $number;
+    // Returns the most recent notes from daily registrations or the original from the booking
+    public function most_recent_notes()
+    {
+        $registration = $this->most_recent_registration();
+        
+        if ($registration && $registration->notes) return $registration->notes;
+        else return $this->notes;
+    }
+
+
+
+
+    // Returns the most recent registration record for this booking (if any)
+    private function most_recent_registration()
+    {
+        if ($this->registrations->count() > 0) return $this->registrations()->orderBy('created_at', 'desc')->first();
+        else return null;
     }
 
 }

@@ -65,7 +65,6 @@
                         		{{ Form::label('contact_name', 'Contact name', array ('class' => 'col-sm-4 control-label')) }}
                                 <div class="col-sm-8">
                         		  {{ Form::text('contact_name', $booking->most_recent_contact_name(), array ('class' => 'form-control')) }}
-                                    <p class="help-block important">Please confirm this is correct for today.</p>
                                 </div>
                         	</div>
 
@@ -73,15 +72,21 @@
                                 {{ Form::label('contact_number', 'Contact number', array ('class' => 'col-sm-4 control-label')) }}
                                 <div class="col-sm-8">
                                     {{ Form::text('contact_number', $booking->most_recent_contact_number(), array ('class' => 'form-control')) }}
-                                    <p class="help-block important">Please confirm this is correct for today.</p>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                {{ Form::label('notes', 'Additional notes', array ('class' => 'col-sm-4 control-label')) }}
+                                {{ Form::label('notes', 'Notes', array ('class' => 'col-sm-4 control-label')) }}
                                 <div class="col-sm-8">
-                                    {{ Form::textarea('notes', '', array ('class' => 'form-control', 'size' => '20x3' )) }}
-                                    <p class="help-block">Specifically for today i.e. don't re-enter notes already recorded with the booking.</p>
+                                    {{ Form::textarea('notes', $booking->most_recent_notes(), array ('class' => 'form-control', 'size' => '20x3' )) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-4">
+                                    <p class="help-block">
+                                        Please confirm the details above are correct and relevent for today and 
+                                        amend if necessary before clicking the "Register" button.</p>
                                 </div>
                             </div>
 
