@@ -13,6 +13,7 @@ Route::group(array('before' => 'auth.basic'), function()
     Route::get('bookings',             array('as' => 'bookings',             'uses' => 'BookingController@index'));
     Route::post('bookings/filter',     array('as' => 'bookings.filter',      'uses' => 'BookingController@filter'));
     Route::get('bookings/resetfilter', array('as' => 'bookings.resetfilter', 'uses' => 'BookingController@resetFilter'));
+    Route::resource('booking', 'BookingController');
     
     Route::get('register',                  array('as' => 'register',                  'uses' => 'RegistrationController@register'));
     Route::post('search',                   array('as' => 'register.search',           'uses' => 'RegistrationController@search'));

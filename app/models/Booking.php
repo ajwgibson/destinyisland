@@ -4,6 +4,26 @@ class Booking extends Eloquent {
 	
 	protected $table = 'bookings';
 
+    protected $fillable = array('first', 'last', 'school_year', 'age', 'group_number', 'activity', 'contact_name', 'contact_number', 'notes');
+
+    public static $rules = array(
+        'first'          => 'required|max:100',
+        'last'           => 'required|max:100',
+        'school_year'    => 'required|max:10',
+        'age'            => 'required|integer',
+        'group_number'   => 'required|max:10',
+        'activity'       => 'required|max:100',
+        'contact_name'   => 'required|max:100',
+        'contact_number' => 'required|max:20',
+    );
+
+    public static $messages = array(
+        'first.required'    => "The first name field is required.",
+        'first.max'         => "The first name may not be greater than :max characters.",
+        'last.required'     => "The last name field is required.",
+        'last.max'          => "The last name may not be greater than :max characters.",
+    );
+
 
 	// Relationship: registrations
 	public function registrations()

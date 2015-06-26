@@ -27,14 +27,6 @@
 
     <div style="margin-bottom:10px;">
         {{ link_to_route(
-            'registration.index', 
-            'Go back',
-            $parameters = array(),
-            $attributes = array( 'class' => 'btn btn-default' )) }}
-    </div>
-
-    <div style="margin-bottom:10px;">
-        {{ link_to_route(
             'registration.edit', 
             'Edit this registration', 
             $parameters = array( 'id' => $registration->id), 

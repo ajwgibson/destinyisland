@@ -1,4 +1,9 @@
 
+
+<div>
+    {{ link_to_route('booking.create', 'Add a new booking', array(), array('class' => 'btn btn-primary')) }}
+</div>  
+
 <div class="pull-right">
     <a class="btn" data-toggle="collapse" data-target="#filter">
         @if ($filtered)
@@ -68,6 +73,8 @@
 
 </div>
 
+
+
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
@@ -78,6 +85,7 @@
 			<th>Contact</th>
 			<th>Activity</th>
 			<th>Group</th>
+            <th>&nbsp;</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -90,6 +98,11 @@
 			<td>{{{ $booking->contact_details() }}}</td>
             <td>{{{ $booking->activity }}}</td>
 			<td>{{{ $booking->group_number }}}</td>
+            <td>{{ link_to_route(
+                    'booking.show', 
+                    'Show details', 
+                    $parameters = array( 'id' => $booking->id), 
+                    $attributes = array( 'class' => '')) }}</td>
 		</tr>
 	@endforeach
 	</tbody>

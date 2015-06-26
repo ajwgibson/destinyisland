@@ -1,7 +1,7 @@
 
 <p class="required-warning">Required fields are marked with an asterisk.</p>
 
-<div class="form-group {{ $errors->has('contact_name') ? 'has-error has-feedback' : '' }}">
+<div class="form-group {{ $errors->has('contact_name') ? 'has-error' : '' }}">
     {{ Form::label('contact_name', 'Contact name', array ('class' => 'control-label required')) }}
     <div class="row">
         <div class="col-sm-6">
@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has('contact_number') ? 'has-error has-feedback' : '' }}">
+<div class="form-group {{ $errors->has('contact_number') ? 'has-error' : '' }}">
     {{ Form::label('contact_number', 'Contact number', array ('class' => 'control-label required')) }}
     <div class="row">
         <div class="col-sm-6">

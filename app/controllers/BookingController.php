@@ -84,4 +84,105 @@ class BookingController extends BaseController {
         return Redirect::route('bookings');
     }
 
+    /**
+     * Show the form for creating a new booking.
+     */
+    public function create()
+    {
+        $booking = new Booking();
+
+        $this->layout->with('subtitle', 'add a new booking');
+
+        $this->layout->content =
+            View::make('bookings.create')
+                    ->with('booking', $booking);
+    }
+
+
+    /**
+     * Store a newly created booking.
+     */
+    public function store()
+    {
+        $input = Input::all();
+
+        $validator = 
+            Validator::make(
+                $input, 
+                Booking::$rules,
+                Booking::$messages);
+
+        if ($validator->passes())
+        {
+            Booking::create($input);
+            return Redirect::route('booking.index');
+        }
+
+        return Redirect::route('booking.create')
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    /**
+     * Retrieves and displays a single booking record.
+     */
+    public function show($id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        $this->layout->with('subtitle', 'booking details for ' . $booking->name());
+        $this->layout->content = 
+            View::make('bookings.show')
+                    ->with('booking', $booking);
+    }
+
+    /**
+     * Shows the form for editing a booking.
+     */
+    public function edit($id)
+    {
+        $booking = Booking::findOrFail($id);
+
+        $this->layout->with('subtitle', 'booking details for ' . $booking->name());
+        $this->layout->content = 
+            View::make('bookings.edit')
+                    ->with('booking', $booking);
+    }
+
+    /**
+     * Updates a booking.
+     */
+    public function update($id)
+    {
+        $input = Input::all();
+
+        $validator = 
+            Validator::make(
+                $input, 
+                Booking::$rules,
+                Booking::$messages);
+
+        if ($validator->passes()) {
+
+            $booking = Booking::findOrFail($id);
+            $booking->update($input);
+
+            return Redirect::route('booking.show', $id);
+        }
+
+        return Redirect::route('booking.edit', $id)
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    /**
+     * Deletes a booking.
+     */
+    public function destroy($id)
+    {
+        Booking::destroy($id);
+
+        return Redirect::route('booking.index');
+    }
+
 }
