@@ -147,4 +147,65 @@ class RegistrationController extends BaseController {
 
         return Redirect::route('registrations');
     }
+
+    /**
+     * Retrieves and displays a single registration record.
+     */
+    public function show($id)
+    {
+        $registration = Registration::findOrFail($id);
+
+        $this->layout->with('subtitle', 'registration details for ' . $registration->booking->name());
+        $this->layout->content = 
+            View::make('registrations.show')
+                    ->with('registration', $registration);
+    }
+
+    /**
+     * Shows the form for editing a registration.
+     */
+    public function edit($id)
+    {
+        $registration = Registration::findOrFail($id);
+
+        $this->layout->with('subtitle', 'registration details for ' . $registration->booking->name());
+        $this->layout->content = 
+            View::make('registrations.edit')
+                    ->with('registration', $registration);
+    }
+
+    /**
+     * Updates a registration.
+     */
+    public function update($id)
+    {
+        $input = Input::all();
+
+        $validator = 
+            Validator::make(
+                $input, 
+                Registration::$rules);
+
+        if ($validator->passes()) {
+
+            $registration = Registration::findOrFail($id);
+            $registration->update($input);
+
+            return Redirect::route('registration.show', $id);
+        }
+
+        return Redirect::route('registration.edit', $id)
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    /**
+     * Deletes a registration.
+     */
+    public function destroy($id)
+    {
+        Registration::destroy($id);
+
+        return Redirect::route('registration.index');
+    }
 }

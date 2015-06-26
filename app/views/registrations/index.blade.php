@@ -63,16 +63,24 @@
 	<thead>
 		<tr>
 			<th>Name</th>
+            <th>Contact</th>
 			<th>Group</th>
 			<th>Date &amp; time</th>
+            <th>&nbsp;</th>
 		</tr>
 	</thead>
 	<tbody>
 	@foreach ($registrations as $registration)
 		<tr>
 			<td>{{{ $registration->booking->first }}} {{{ $registration->booking->last }}}</td>
+            <td>{{{ $registration->contact_name }}} ({{{ $registration->contact_number }}})</td>
 			<td>{{{ $registration->booking->group_number }}}</td>
 			<td>{{{ $registration->created_at }}}</td>
+            <td>{{ link_to_route(
+                    'registration.show', 
+                    'Show details', 
+                    $parameters = array( 'id' => $registration->id), 
+                    $attributes = array( 'class' => '')) }}</td>
 		</tr>
 	@endforeach
 	</tbody>

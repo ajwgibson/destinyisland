@@ -20,4 +20,5 @@ Route::group(array('before' => 'auth.basic'), function()
     Route::get('registrations',             array('as' => 'registrations',             'uses' => 'RegistrationController@index'));  
     Route::post('registrations/filter',     array('as' => 'registrations.filter',      'uses' => 'RegistrationController@filter'));
     Route::get('registrations/resetfilter', array('as' => 'registrations.resetfilter', 'uses' => 'RegistrationController@resetFilter'));
+    Route::resource('registration', 'RegistrationController');
 });

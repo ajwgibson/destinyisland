@@ -4,26 +4,6 @@
 
     <div class="col-sm-9">
 
-    	@if (Session::has('info'))
-        <div class="alert alert-info alert-dismissable">
-            <p>{{ Session::get('info') }}</p>
-        </div>
-        @elseif (isset($info))
-        <div class="alert alert-info alert-dismissable">
-            <p>{{{ $info }}}</p>
-        </div>
-        @endif
-
-        @if (Session::has('message'))
-        <div class="alert alert-danger alert-dismissable">
-            <p>{{ Session::get('message') }}</p>
-        </div>
-        @elseif (isset($message))
-        <div class="alert alert-danger alert-dismissable">
-            <p>{{{ $message }}}</p>
-        </div>
-        @endif
-
         <p>Enter a child's name (the name on the booking) to search for a booking:</p>
 
         {{ Form::open(array('route' => 'register.search')) }}

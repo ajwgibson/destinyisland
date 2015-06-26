@@ -10,4 +10,10 @@ class Booking extends Eloquent {
 		return $this->hasMany('Registration');
 	}
 
+    // Returns's the child's name
+    public function name()
+    {
+        return $this->first . ' ' . $this->last;
+    }
+
 }
