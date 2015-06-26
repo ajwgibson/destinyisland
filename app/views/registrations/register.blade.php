@@ -64,14 +64,16 @@
             				<div class="form-group">
                         		{{ Form::label('contact_name', 'Contact name', array ('class' => 'col-sm-4 control-label')) }}
                                 <div class="col-sm-8">
-                        		  {{ Form::text('contact_name', '', array ('class' => 'form-control')) }}
+                        		  {{ Form::text('contact_name', $booking->most_recent_contact_name(), array ('class' => 'form-control')) }}
+                                    <p class="help-block important">Please confirm this is correct for today.</p>
                                 </div>
                         	</div>
 
                             <div class="form-group">
                                 {{ Form::label('contact_number', 'Contact number', array ('class' => 'col-sm-4 control-label')) }}
                                 <div class="col-sm-8">
-                                    {{ Form::text('contact_number', '', array ('class' => 'form-control')) }}
+                                    {{ Form::text('contact_number', $booking->most_recent_contact_number(), array ('class' => 'form-control')) }}
+                                    <p class="help-block important">Please confirm this is correct for today.</p>
                                 </div>
                             </div>
 
@@ -79,9 +81,7 @@
                                 {{ Form::label('notes', 'Additional notes', array ('class' => 'col-sm-4 control-label')) }}
                                 <div class="col-sm-8">
                                     {{ Form::textarea('notes', '', array ('class' => 'form-control', 'size' => '20x3' )) }}
-                                    <p class="help-block">
-                                        Specifically for today i.e. don't re-enter notes already recorded with the booking.
-                                    </p>
+                                    <p class="help-block">Specifically for today i.e. don't re-enter notes already recorded with the booking.</p>
                                 </div>
                             </div>
 

@@ -74,7 +74,8 @@
 			<th>First name</th>
             <th>Last name</th>
 			<th>School year</th>
-			<th>Age</th>
+            <th>Age</th>
+			<th>Contact</th>
 			<th>Activity</th>
 			<th>Group</th>
 		</tr>
@@ -86,7 +87,8 @@
 			<td>{{{ $booking->last }}}</td>
 			<td>{{{ $booking->school_year }}}</td>
 			<td>{{{ $booking->age }}}</td>
-			<td>{{{ $booking->activity }}}</td>
+			<td>{{{ $booking->contact_details() }}}</td>
+            <td>{{{ $booking->activity }}}</td>
 			<td>{{{ $booking->group_number }}}</td>
 		</tr>
 	@endforeach
