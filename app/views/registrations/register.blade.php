@@ -30,14 +30,11 @@
             <p style="margin-top: 20px;">The following bookings have matched the search criteria. Pick one to continue or search again.</p>
 
         	@foreach ($bookings as $booking)
-
-            {{ Form::open(array('route' => 'register.booking', 'class' => 'form-horizontal')) }}
-            {{ Form::hidden('booking_id', $booking->id) }}
-
+            
 			<div class="panel panel-primary panel-search-result">
 
                 <div class="panel-heading">
-                    <h3 class="panel-title text-uppercase">{{{ $booking->first }}} {{{ $booking->last }}}</h3>
+                    <h3 class="panel-title text-uppercase">{{{ $booking->name() }}}</h3>
                 </div>
                 
                 <div class="panel-body">
@@ -54,12 +51,42 @@
                                 <dd>{{{ $booking->activity }}}</dd>
                                 <dt>Group</dt>
                                 <dd>{{{ $booking->group_number }}}</dd>
-                                <dt>Notes</dt>
-                                <dd>{{{ $booking->notes }}}</dd>
                             </dl>
                         </div>
         						
                         <div class="col-sm-8">
+
+                            <?php $todays_registration = $booking->todays_registration(); ?>
+
+                            @if ($todays_registration)
+
+                            <p>{{{ $booking->name() }}} has already been registered today with the following details:</p>
+
+                            <dl>
+                                <dt>Registration time</dt>
+                                <dd>{{{ $todays_registration->created_at->format('g:sa') }}}</dd>
+                                <dt>Contact name</dt>
+                                <dd>{{{ $todays_registration->contact_name }}}</dd>
+                                <dt>Contact number</dt>
+                                <dd>{{{ $todays_registration->contact_number }}}</dd>
+                                <dt>Notes</dt>
+                                <dd>{{ nl2br($todays_registration->notes) }}</dd>
+                            </dl>
+
+                            <p>
+                                If you think that is an error, please use 
+                                {{ link_to_route(
+                                        'registration.show', 
+                                        'this link', 
+                                        $parameters = array( 'id' => $todays_registration->id), 
+                                        $attributes = array( 'class' => '')) }}
+                                to view the registration record and amend or remove it.
+                            </p>
+
+                            @else
+
+                            {{ Form::open(array('route' => 'register.booking', 'class' => 'form-horizontal')) }}
+                            {{ Form::hidden('booking_id', $booking->id) }}
 
             				<div class="form-group {{ $errors->has('contact_name') ? 'has-error' : '' }}">
                         		{{ Form::label('contact_name', 'Contact name', array ('class' => 'col-sm-4 control-label required')) }}
@@ -95,6 +122,8 @@
             				        {{ Form::submit('Register', array ('class' => 'btn btn-primary')) }} 
                                 </div>
                             </div>
+
+                            @endif
 
                         </div>
 

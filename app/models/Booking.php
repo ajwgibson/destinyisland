@@ -89,7 +89,11 @@ class Booking extends Eloquent {
         else return $this->notes;
     }
 
-
+    // Returns today's registration for this booking (if any)
+    public function todays_registration()
+    {
+        return $this->registrations()->where(DB::raw('DATE(registrations.created_at)'), '=', DB::raw('current_date'))->first();
+    }
 
 
     // Returns the most recent registration record for this booking (if any)
@@ -98,5 +102,7 @@ class Booking extends Eloquent {
         if ($this->registrations->count() > 0) return $this->registrations()->orderBy('created_at', 'desc')->first();
         else return null;
     }
+
+    
 
 }
