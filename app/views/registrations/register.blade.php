@@ -61,24 +61,24 @@
         						
                         <div class="col-sm-8">
 
-            				<div class="form-group">
-                        		{{ Form::label('contact_name', 'Contact name', array ('class' => 'col-sm-4 control-label')) }}
+            				<div class="form-group {{ $errors->has('contact_name') ? 'has-error' : '' }}">
+                        		{{ Form::label('contact_name', 'Contact name', array ('class' => 'col-sm-4 control-label required')) }}
                                 <div class="col-sm-8">
-                        		  {{ Form::text('contact_name', $booking->most_recent_contact_name(), array ('class' => 'form-control')) }}
+                        		  {{ Form::text('contact_name', $booking->contact_name, array ('class' => 'form-control')) }}
                                 </div>
                         	</div>
 
-                            <div class="form-group">
-                                {{ Form::label('contact_number', 'Contact number', array ('class' => 'col-sm-4 control-label')) }}
+                            <div class="form-group {{ $errors->has('contact_number') ? 'has-error' : '' }}">
+                                {{ Form::label('contact_number', 'Contact number', array ('class' => 'col-sm-4 control-label required')) }}
                                 <div class="col-sm-8">
-                                    {{ Form::text('contact_number', $booking->most_recent_contact_number(), array ('class' => 'form-control')) }}
+                                    {{ Form::text('contact_number', $booking->contact_number, array ('class' => 'form-control')) }}
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 {{ Form::label('notes', 'Notes', array ('class' => 'col-sm-4 control-label')) }}
                                 <div class="col-sm-8">
-                                    {{ Form::textarea('notes', $booking->most_recent_notes(), array ('class' => 'form-control', 'size' => '20x3' )) }}
+                                    {{ Form::textarea('notes', $booking->notes, array ('class' => 'form-control', 'size' => '20x3' )) }}
                                 </div>
                             </div>
 

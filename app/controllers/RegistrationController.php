@@ -31,17 +31,26 @@ class RegistrationController extends BaseController {
 
         $booking_count = $bookings->count();
 
-        if ($booking_count == 0) {
+        if ($booking_count == 0) 
+        {
             return Redirect::route('register')
                     ->withInput()
                     ->with('message', 'No booking found!');
         } 
+        else
+        {
+            $bookings->each(function($booking) {
+                $booking->contact_name = $booking->most_recent_contact_name();
+                $booking->contact_number = $booking->most_recent_contact_number();
+                $booking->notes = $booking->most_recent_notes();
+            });
 
-        $this->layout->with('subtitle', 'Registration');
+            $this->layout->with('subtitle', 'Registration');
 
-        $this->layout->content = 
-            View::make('registrations.register')
-                ->with('bookings', $bookings);
+            $this->layout->content = 
+                View::make('registrations.register')
+                    ->with('bookings', $bookings);
+        }
     }
 
     /**
@@ -49,21 +58,50 @@ class RegistrationController extends BaseController {
      */
     public function register_booking()
     {
-    	$booking_id = Input::get('booking_id');
+        $booking_id = Input::get('booking_id');
 
-    	$booking = Booking::findOrFail($booking_id);
-    	$booking->registrations()->save(
-            new Registration(
-                array(
-                    'contact_name'   => Input::get('contact_name'),
-                    'contact_number' => Input::get('contact_number'),
-                    'notes'          => Input::get('notes'),
-                )
-            ));
+        $input = Input::all();
 
-    	return Redirect::route('register')
-		            ->withInput()
-		            ->with('info', 'Registration complete!');
+        $validator = 
+            Validator::make(
+                $input, 
+                Registration::$rules);
+
+        if ($validator->passes()) 
+        {
+        	$booking = Booking::findOrFail($booking_id);
+        	$booking->registrations()->save(
+                new Registration(
+                    array(
+                        'contact_name'   => Input::get('contact_name'),
+                        'contact_number' => Input::get('contact_number'),
+                        'notes'          => Input::get('notes'),
+                    )
+                ));
+
+        	return Redirect::route('register')
+    		            ->withInput()
+    		            ->with('info', 'Registration complete!');
+        }
+        else
+        {
+            $bookings = Booking::where('id', $booking_id)->get();
+
+            $bookings->each(function($booking) {
+                // Should actually only be one...
+                $booking->contact_name = Input::get('contact_name');
+                $booking->contact_number = Input::get('contact_number');
+                $booking->notes = Input::get('notes');
+            });
+
+            $this->layout->with('subtitle', 'Registration');
+            $this->layout->withErrors($validator);
+
+            $this->layout->content = 
+                View::make('registrations.register')
+                    ->with('bookings', $bookings)
+                    ->with('errors',   $validator->messages());
+        }
     }
 
     /**
@@ -186,8 +224,8 @@ class RegistrationController extends BaseController {
                 $input, 
                 Registration::$rules);
 
-        if ($validator->passes()) {
-
+        if ($validator->passes()) 
+        {
             $registration = Registration::findOrFail($id);
             $registration->update($input);
 
