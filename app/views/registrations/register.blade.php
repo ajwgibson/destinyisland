@@ -149,11 +149,12 @@
 			</div>
 			<div class="panel-body">
 				<ul class="list-group">
-				    <li class="list-group-item">Monday <span class="badge alert-info">{{{ 'todo' }}}</span></li>
-				    <li class="list-group-item">Tuesday <span class="badge alert-info">{{{ 'todo' }}}</span></li>
-                    <li class="list-group-item">Wednesday <span class="badge alert-info">{{{ 'todo' }}}</span></li>
-                    <li class="list-group-item">Thursday <span class="badge alert-info">{{{ 'todo' }}}</span></li>
-				    <li class="list-group-item">Friday <span class="badge alert-info">{{{ 'todo' }}}</span></li>
+                    <li class="list-group-item">Expected <span class="badge alert-info">{{{ $expected }}}</span></li>
+				    <li class="list-group-item">Monday <span class="badge alert-info">{{{ $monday }}}</span></li>
+				    <li class="list-group-item">Tuesday <span class="badge alert-info">{{{ $tuesday }}}</span></li>
+                    <li class="list-group-item">Wednesday <span class="badge alert-info">{{{ $wednesday }}}</span></li>
+                    <li class="list-group-item">Thursday <span class="badge alert-info">{{{ $thursday }}}</span></li>
+				    <li class="list-group-item">Friday <span class="badge alert-info">{{{ $friday }}}</span></li>
 				</ul>
 			</div>
 		</div>
