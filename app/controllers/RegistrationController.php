@@ -7,7 +7,7 @@ class RegistrationController extends BaseController {
      */
 	public function register()
 	{
-        $this->layout->with('subtitle', 'Registration');
+        $this->layout->with('subtitle', 'registration');
 		$this->layout->content = View::make('registrations.register');
 	}
 
@@ -45,7 +45,7 @@ class RegistrationController extends BaseController {
                 $booking->notes = $booking->most_recent_notes();
             });
 
-            $this->layout->with('subtitle', 'Registration');
+            $this->layout->with('subtitle', 'registration');
 
             $this->layout->content = 
                 View::make('registrations.register')
@@ -94,7 +94,7 @@ class RegistrationController extends BaseController {
                 $booking->notes = Input::get('notes');
             });
 
-            $this->layout->with('subtitle', 'Registration');
+            $this->layout->with('subtitle', 'registration');
             $this->layout->withErrors($validator);
 
             $this->layout->content = 
@@ -109,7 +109,7 @@ class RegistrationController extends BaseController {
      */
     public function index()
     {
-        $this->layout->with('subtitle', 'Registrations');
+        $this->layout->with('subtitle', 'registrations');
 
         $registrations = 
             Registration::orderBy('registrations.created_at', 'desc');

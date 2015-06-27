@@ -4,7 +4,7 @@ class BookingController extends BaseController {
 
 	public function index()
 	{
-        $this->layout->with('subtitle', 'Bookings');
+        $this->layout->with('subtitle', 'bookings');
 
         $bookings = Booking::orderBy('last')->orderBy('first');
 
