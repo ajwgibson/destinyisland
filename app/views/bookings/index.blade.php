@@ -25,9 +25,23 @@
     	<div class="col-sm-3">
 
             <div class="form-group">
-                {{ Form::label('filter_activity', 'Chosen activity', array ('class' => 'control-label')) }}
+                {{ Form::label('filter_activity_1', 'Activity 1 (Monday)', array ('class' => 'control-label')) }}
                 <div>
-                    {{ Form::select('filter_activity', $activities, $filter_activity, array ('class' => 'form-control')) }}
+                    {{ Form::select('filter_activity_1', $activities, $filter_activity_1, array ('class' => 'form-control')) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ Form::label('filter_activity_2', 'Activity 2 (Tuesday)', array ('class' => 'control-label')) }}
+                <div>
+                    {{ Form::select('filter_activity_2', $activities, $filter_activity_2, array ('class' => 'form-control')) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ Form::label('filter_activity_3', 'Activity 3 (Wednesday)', array ('class' => 'control-label')) }}
+                <div>
+                    {{ Form::select('filter_activity_3', $activities, $filter_activity_3, array ('class' => 'form-control')) }}
                 </div>
             </div>
 
@@ -83,7 +97,7 @@
 			<th>School year</th>
             <th>Age</th>
 			<th>Contact</th>
-			<th>Activity</th>
+			<th>Activities</th>
 			<th>Group</th>
             <th>&nbsp;</th>
 		</tr>
@@ -96,7 +110,7 @@
 			<td>{{{ $booking->school_year }}}</td>
 			<td>{{{ $booking->age }}}</td>
 			<td>{{{ $booking->contact_details() }}}</td>
-            <td>{{{ $booking->activity }}}</td>
+            <td>{{{ $booking->activity_1 }}}, {{{ $booking->activity_2 }}}, {{{ $booking->activity_3 }}}</td>
 			<td>{{{ $booking->group_number }}}</td>
             <td>{{ link_to_route(
                     'booking.show', 

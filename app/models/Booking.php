@@ -4,7 +4,10 @@ class Booking extends Eloquent {
 	
 	protected $table = 'bookings';
 
-    protected $fillable = array('first', 'last', 'school_year', 'age', 'group_number', 'activity', 'contact_name', 'contact_number', 'notes');
+    protected $fillable = array(
+        'first', 'last', 'school_year', 'age', 'group_number', 
+        'activity_1', 'activity_2', 'activity_3', 
+        'contact_name', 'contact_number', 'notes');
 
     public static $rules = array(
         'first'          => 'required|max:100',
@@ -12,7 +15,9 @@ class Booking extends Eloquent {
         'school_year'    => 'required|max:10',
         'age'            => 'required|integer',
         'group_number'   => 'required|max:10',
-        'activity'       => 'required|max:100',
+        'activity_1'     => 'required|max:100',
+        'activity_2'     => 'required|max:100',
+        'activity_3'     => 'required|max:100',
         'contact_name'   => 'required|max:100',
         'contact_number' => 'required|max:20',
     );

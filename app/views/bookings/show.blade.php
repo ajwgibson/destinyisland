@@ -8,8 +8,14 @@
         <dt>Age</dt>
         <dd>{{{ $booking->age }}}</dd>
 
-        <dt>Chosen activity</dt>
-        <dd>{{{ $booking->activity }}}</dd>
+        <dt>Activity 1 (Monday)</dt>
+        <dd>{{{ $booking->activity_1 }}}</dd>
+
+        <dt>Activity 2 (Tuesday)</dt>
+        <dd>{{{ $booking->activity_2 }}}</dd>
+
+        <dt>Activity 3 (Wednesday)</dt>
+        <dd>{{{ $booking->activity_3 }}}</dd>
 
         <dt>Group</dt>
         <dd>{{{ $booking->group_number }}}</dd>

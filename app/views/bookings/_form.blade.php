@@ -46,11 +46,29 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has('activity') ? 'has-error' : '' }}">
-    {{ Form::label('activity', 'Activity', array ('class' => 'control-label required')) }}
+<div class="form-group {{ $errors->has('activity_1') ? 'has-error' : '' }}">
+    {{ Form::label('activity_1', 'Activity 1 (Monday)', array ('class' => 'control-label required')) }}
     <div class="row">
         <div class="col-sm-6">
-            {{ Form::text('activity', $booking->activity, array ('class' => 'form-control')) }}
+            {{ Form::text('activity_1', $booking->activity_1, array ('class' => 'form-control')) }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group {{ $errors->has('activity_2') ? 'has-error' : '' }}">
+    {{ Form::label('activity_2', 'Activity 2 (Tuesday)', array ('class' => 'control-label required')) }}
+    <div class="row">
+        <div class="col-sm-6">
+            {{ Form::text('activity_2', $booking->activity_2, array ('class' => 'form-control')) }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group {{ $errors->has('activity_3') ? 'has-error' : '' }}">
+    {{ Form::label('activity_3', 'Activity 3 (Wednesday)', array ('class' => 'control-label required')) }}
+    <div class="row">
+        <div class="col-sm-6">
+            {{ Form::text('activity_3', $booking->activity_3, array ('class' => 'form-control')) }}
         </div>
     </div>
 </div>

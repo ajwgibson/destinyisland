@@ -9,9 +9,11 @@ class BookingController extends BaseController {
         $bookings = Booking::orderBy('last')->orderBy('first');
 
         $filtered = false;
-		$filter_name      = Session::get('bookings_filter_name',      '');
-        $filter_activity  = Session::get('bookings_filter_activity',  '');
-        $filter_group     = Session::get('bookings_filter_group',     '');
+		$filter_name        = Session::get('bookings_filter_name',        '');
+        $filter_activity_1  = Session::get('bookings_filter_activity_1',  '');
+        $filter_activity_2  = Session::get('bookings_filter_activity_2',  '');
+        $filter_activity_3  = Session::get('bookings_filter_activity_3',  '');
+        $filter_group       = Session::get('bookings_filter_group',       '');
 
         if (!(empty($filter_name))) {
             $bookings = $bookings
@@ -22,8 +24,8 @@ class BookingController extends BaseController {
             $filtered = true;
         }
 
-        if (!(empty($filter_activity))) {
-            $bookings = $bookings->where('activity', $filter_activity);
+        if (!(empty($filter_activity_1))) {
+            $bookings = $bookings->where('activity_1', $filter_activity_1);
             $filtered = true;
         }
 
@@ -34,8 +36,10 @@ class BookingController extends BaseController {
 
 		$bookings = $bookings->paginate(25);
 
-        $activities = array( '' => 'Select an activity...' ) 
-                        + Booking::distinct('activity')->orderBy('activity')->lists('activity', 'activity');
+        $activities = array( '' => 'Select an activity...' )
+                        + Booking::distinct('activity_1')->orderBy('activity_1')->lists('activity_1', 'activity_1')
+                        + Booking::distinct('activity_2')->orderBy('activity_2')->lists('activity_2', 'activity_2')
+                        + Booking::distinct('activity_3')->orderBy('activity_3')->lists('activity_3', 'activity_3');
 
         $groups = array( '' => 'Select a group...' ) 
                         + Booking::distinct('group_number')->orderBy('group_number')->lists('group_number', 'group_number');
@@ -46,7 +50,9 @@ class BookingController extends BaseController {
 				->with('filtered', $filtered)
                 ->with('filter_name', $filter_name)
                 ->with('activities', $activities)
-                ->with('filter_activity', $filter_activity)
+                ->with('filter_activity_1', $filter_activity_1)
+                ->with('filter_activity_2', $filter_activity_2)
+                ->with('filter_activity_3', $filter_activity_3)
                 ->with('groups', $groups)
                 ->with('filter_group', $filter_group);
 	}
@@ -58,13 +64,17 @@ class BookingController extends BaseController {
      */
     public function filter()
     {
-        $filter_name      = Input::get('filter_name');
-        $filter_activity  = Input::get('filter_activity');
-        $filter_group     = Input::get('filter_group');
+        $filter_name        = Input::get('filter_name');
+        $filter_activity_1  = Input::get('filter_activity_1');
+        $filter_activity_2  = Input::get('filter_activity_2');
+        $filter_activity_3  = Input::get('filter_activity_3');
+        $filter_group       = Input::get('filter_group');
         
-        Session::put('bookings_filter_name',      $filter_name);
-        Session::put('bookings_filter_activity',  $filter_activity);
-        Session::put('bookings_filter_group',     $filter_group);
+        Session::put('bookings_filter_name',        $filter_name);
+        Session::put('bookings_filter_activity_1',  $filter_activity_1);
+        Session::put('bookings_filter_activity_2',  $filter_activity_2);
+        Session::put('bookings_filter_activity_3',  $filter_activity_3);
+        Session::put('bookings_filter_group',       $filter_group);
 
         return Redirect::route('bookings');
     }
@@ -77,9 +87,11 @@ class BookingController extends BaseController {
      */
     public function resetFilter()
     {
-        if (Session::has('bookings_filter_name'))      Session::forget('bookings_filter_name');
-        if (Session::has('bookings_filter_activity'))  Session::forget('bookings_filter_activity');
-        if (Session::has('bookings_filter_group'))     Session::forget('bookings_filter_group');
+        if (Session::has('bookings_filter_name'))        Session::forget('bookings_filter_name');
+        if (Session::has('bookings_filter_activity_1'))  Session::forget('bookings_filter_activity_1');
+        if (Session::has('bookings_filter_activity_2'))  Session::forget('bookings_filter_activity_2');
+        if (Session::has('bookings_filter_activity_3'))  Session::forget('bookings_filter_activity_3');
+        if (Session::has('bookings_filter_group'))       Session::forget('bookings_filter_group');
 
         return Redirect::route('bookings');
     }

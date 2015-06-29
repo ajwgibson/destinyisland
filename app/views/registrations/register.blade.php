@@ -47,8 +47,8 @@
                                 <dd>{{{ $booking->school_year }}}</dd>
                                 <dt>Age</dt>
                                 <dd>{{{ $booking->age }}}</dd>
-                                <dt>Chosen activity</dt>
-                                <dd>{{{ $booking->activity }}}</dd>
+                                <dt>Chosen activities</dt>
+                                <dd>{{{ $booking->activity_1 }}}, {{{ $booking->activity_2 }}}, {{{ $booking->activity_3 }}}</dd>
                                 <dt>Group</dt>
                                 <dd>{{{ $booking->group_number }}}</dd>
                             </dl>
