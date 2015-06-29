@@ -28,7 +28,7 @@
     <div id="wrap">
 
         <!-- Fixed navbar -->
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar navbar-inverse navbar-fixed-top hidden-print" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -43,6 +43,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">{{ link_to_route('home', 'HOME') }}</li>
                         <li class="">{{ link_to_route('register', 'REGISTER') }}</li>
+                        <li class="">{{ link_to_route('printout', 'PRINT-OUT') }}</li>
                         <li class="">{{ link_to_route('registrations', 'REGISTRATIONS') }}</li>
                         <li class="">{{ link_to_route('bookings', 'BOOKINGS') }}</li>
                     </ul>
@@ -53,7 +54,7 @@
         <!-- Begin page content -->
         <div class="container">
 
-            <div class="page-header">
+            <div class="page-header hidden-print">
                 <img src="{{ asset('images/banner.jpg') }}" class="img-responsive" alt="Destiny Island banner">
                 <h1>Destiny Island @if ($subtitle) <span class="subtitle"><small>&raquo; {{ $subtitle }}</small></span> @endif</h1>
             </div>

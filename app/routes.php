@@ -22,4 +22,7 @@ Route::group(array('before' => 'auth.basic'), function()
     Route::post('registrations/filter',     array('as' => 'registrations.filter',      'uses' => 'RegistrationController@filter'));
     Route::get('registrations/resetfilter', array('as' => 'registrations.resetfilter', 'uses' => 'RegistrationController@resetFilter'));
     Route::resource('registration', 'RegistrationController');
+
+    Route::get('printout/{day?}/{group?}', array('as' => 'printout',   'uses' => 'PrintoutController@index'));
+    Route::post('doPrintout',              array('as' => 'doPrintout', 'uses' => 'PrintoutController@doPrintout'));
 });

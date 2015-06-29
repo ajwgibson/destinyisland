@@ -110,7 +110,7 @@
 			<td>{{{ $booking->school_year }}}</td>
 			<td>{{{ $booking->age }}}</td>
 			<td>{{{ $booking->contact_details() }}}</td>
-            <td>{{{ $booking->activity_1 }}}, {{{ $booking->activity_2 }}}, {{{ $booking->activity_3 }}}</td>
+            <td>{{{ $booking->activities() }}}</td>
 			<td>{{{ $booking->group_number }}}</td>
             <td>{{ link_to_route(
                     'booking.show', 
