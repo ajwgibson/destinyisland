@@ -79,9 +79,23 @@ class RegistrationController extends BaseController {
                     )
                 ));
 
-        	return Redirect::route('register')
-    		            ->withInput()
-    		            ->with('info', 'Registration complete!');
+        	$print_label = Input::get('print_label', false);
+
+            if ($print_label)
+            {
+                return 
+                    Redirect::route(
+                        'printLabel', 
+                        array(
+                            'booking_id' => $booking_id, 
+                            'return_url' => rawurlencode(route('register'))
+                        ));
+            }
+            else
+            {
+                return Redirect::route('register')
+        		            ->with('info', 'Registration complete!');
+            }
         }
         else
         {

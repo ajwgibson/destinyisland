@@ -43,9 +43,21 @@ class Booking extends Eloquent {
     }
 
     // Returns the child's name
+    public function label_name()
+    {
+        return $this->first . '\n' . $this->last;
+    }
+
+    // Returns the activities in a single, comma separated string
     public function activities()
     {
         return $this->activity_1 . ', ' . $this->activity_2 . ', ' . $this->activity_3;
+    }
+
+    // Returns the activities in a single, newline separated string
+    public function label_activities()
+    {
+        return $this->activity_1 . '\n' . $this->activity_2 . '\n' . $this->activity_3;
     }
 
     // Returns the contact details in a single string

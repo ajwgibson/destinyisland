@@ -116,7 +116,13 @@
                     'booking.show', 
                     'Show details', 
                     $parameters = array( 'id' => $booking->id), 
-                    $attributes = array( 'class' => '')) }}</td>
+                    $attributes = array( 'class' => '')) }},
+                {{ link_to_route(
+                    'printLabel', 
+                    'Print label', 
+                    $parameters = array( 'booking_id' => $booking->id, 'return_url' => rawurlencode(route('bookings')) ), 
+                    $attributes = array( 'class' => '')) }}
+            </td>
 		</tr>
 	@endforeach
 	</tbody>

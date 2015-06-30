@@ -34,4 +34,14 @@ class PrintoutController extends BaseController {
         return Redirect::route('printout', array('day' => $day, 'group' => $group));
     }
 
+    public function printLabel($booking_id, $return_url)
+    {
+        $booking = Booking::findOrFail($booking_id);
+        $this->layout->with('subtitle', 'label printing');
+        $this->layout->content = 
+            View::make('printouts.label')
+                    ->with('booking', $booking)
+                    ->with('return_url', $return_url);
+    }
+
 }
