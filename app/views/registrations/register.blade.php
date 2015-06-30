@@ -119,6 +119,12 @@
 
                             <div class="form-group">
                                 <div class="col-sm-8 col-sm-offset-4">
+                                    <label class="checkbox-inline">{{ Form::checkbox('print_label', true, $booking->has_never_registered()) }} Print label</label><br/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-4">
             				        {{ Form::submit('Register', array ('class' => 'btn btn-primary')) }} 
                                 </div>
                             </div>

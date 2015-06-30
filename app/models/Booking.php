@@ -106,6 +106,17 @@ class Booking extends Eloquent {
         return $this->registrations()->where(DB::raw('DATE(registrations.created_at)'), '=', DB::raw('current_date'))->first();
     }
 
+    // Returns true if this booking has had no registrations yet
+    public function has_never_registered()
+    {
+        return $this->registrations->count() == 0;
+    }
+
+
+
+
+
+
 
     // Returns the most recent registration record for this booking (if any)
     private function most_recent_registration()
