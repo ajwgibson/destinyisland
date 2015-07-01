@@ -89,7 +89,8 @@ class RegistrationController extends BaseController {
                         array(
                             'booking_id' => $booking_id, 
                             'return_url' => rawurlencode(route('register'))
-                        ));
+                        ))
+                        ->with('info', 'Registration complete!');;
             }
             else
             {

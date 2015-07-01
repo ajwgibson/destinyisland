@@ -16,8 +16,8 @@
                 </div>
             </div>
             <p class="help-block">
-                <em><strong>Hint:</strong> Try the first or last name, but not both.
-                If you're not sure of the correct spelling try putting in just part of the name. </em>
+                <em><strong>Hint:</strong> Type the child's first or last name, but not both.
+                If you're not sure of the correct spelling try putting in just part of the name.</em>
             </p>
         </div>
 
