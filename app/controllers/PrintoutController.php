@@ -10,6 +10,7 @@ class PrintoutController extends BaseController {
 
         $registrations = 
             Registration::join('bookings', 'registrations.booking_id', '=', 'bookings.id')
+                ->select('registrations.*')
                 ->where(DB::raw('DAYNAME(registrations.created_at)'), '=', $day)
                 ->where('bookings.group_number', $group)
                 ->orderBy('bookings.first')
