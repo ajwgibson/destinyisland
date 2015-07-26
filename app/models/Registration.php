@@ -4,7 +4,7 @@ class Registration extends Eloquent {
 	
 	protected $table = 'registrations';
 
-	protected $fillable = array('contact_name', 'contact_number', 'notes');
+	protected $fillable = array('contact_name', 'contact_number', 'photos_permitted', 'outings_permitted', 'notes');
 
 	public static $rules = array(
 		'contact_name'   => 'required|max:100',

@@ -11,6 +11,12 @@
         <dt>Contact number</dt>
         <dd>{{{ $registration->contact_number }}}</dd>
 
+        <dt>Photos permitted</dt>
+        <dd><span class="label label-{{{ $registration->photos_permitted ? 'success' : 'danger' }}}">{{{ $registration->photos_permitted ? 'Yes' : 'No' }}}</span></dd>
+
+        <dt>Outings permitted</dt>
+        <dd><span class="label label-{{{ $registration->outings_permitted ? 'success' : 'danger' }}}">{{{ $registration->outings_permitted ? 'Yes' : 'No' }}}</span></dd>
+
         <dt>Notes</dt>
         <dd>{{ nl2br($registration->notes) }}</dd>
 

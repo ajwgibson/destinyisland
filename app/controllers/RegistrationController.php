@@ -42,6 +42,8 @@ class RegistrationController extends BaseController {
             $bookings->each(function($booking) {
                 $booking->contact_name = $booking->most_recent_contact_name();
                 $booking->contact_number = $booking->most_recent_contact_number();
+                $booking->photos_permitted = $booking->most_recent_photos_permitted();
+                $booking->outings_permitted = $booking->most_recent_outings_permitted();
                 $booking->notes = $booking->most_recent_notes();
             });
 
@@ -73,9 +75,11 @@ class RegistrationController extends BaseController {
         	$booking->registrations()->save(
                 new Registration(
                     array(
-                        'contact_name'   => Input::get('contact_name'),
-                        'contact_number' => Input::get('contact_number'),
-                        'notes'          => Input::get('notes'),
+                        'contact_name'      => Input::get('contact_name'),
+                        'contact_number'    => Input::get('contact_number'),
+                        'photos_permitted'  => Input::get('photos_permitted'),
+                        'outings_permitted' => Input::get('outings_permitted'),
+                        'notes'             => Input::get('notes'),
                     )
                 ));
 
@@ -106,6 +110,8 @@ class RegistrationController extends BaseController {
                 // Should actually only be one...
                 $booking->contact_name = Input::get('contact_name');
                 $booking->contact_number = Input::get('contact_number');
+                $booking->photos_permitted = Input::get('photos_permitted');
+                $booking->outings_permitted = Input::get('outings_permitted');
                 $booking->notes = Input::get('notes');
             });
 

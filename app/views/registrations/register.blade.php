@@ -69,6 +69,10 @@
                                 <dd>{{{ $todays_registration->contact_name }}}</dd>
                                 <dt>Contact number</dt>
                                 <dd>{{{ $todays_registration->contact_number }}}</dd>
+                                <dt>Photos permitted</dt>
+                                <dd><span class="label label-{{{ $todays_registration->photos_permitted ? 'success' : 'danger' }}}">{{{ $todays_registration->photos_permitted ? 'Yes' : 'No' }}}</span></dd>
+                                <dt>Outings permitted</dt>
+                                <dd><span class="label label-{{{ $todays_registration->outings_permitted ? 'success' : 'danger' }}}">{{{ $todays_registration->outings_permitted ? 'Yes' : 'No' }}}</span></dd>
                                 <dt>Notes</dt>
                                 <dd>{{ nl2br($todays_registration->notes) }}</dd>
                             </dl>
@@ -99,6 +103,20 @@
                                 {{ Form::label('contact_number', 'Contact number', array ('class' => 'col-sm-4 control-label required')) }}
                                 <div class="col-sm-8">
                                     {{ Form::text('contact_number', $booking->contact_number, array ('class' => 'form-control')) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                {{ Form::label('photos_permitted', 'Photos permitted', array ('class' => 'col-sm-4 control-label')) }}
+                                <div class="col-sm-2">
+                                    {{ Form::select('photos_permitted', array(false => 'No', true => 'Yes'), $booking->photos_permitted, array ('class' => 'form-control')) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                {{ Form::label('outings_permitted', 'Outings permitted', array ('class' => 'col-sm-4 control-label')) }}
+                                <div class="col-sm-2">
+                                    {{ Form::select('outings_permitted', array(false => 'No', true => 'Yes'), $booking->outings_permitted, array ('class' => 'form-control')) }}
                                 </div>
                             </div>
 

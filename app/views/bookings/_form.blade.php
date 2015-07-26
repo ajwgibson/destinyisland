@@ -91,6 +91,24 @@
     </div>
 </div>
 
+<div class="form-group {{ $errors->has('photos_permitted') ? 'has-error' : '' }}">
+    {{ Form::label('photos_permitted', 'Photos permitted', array ('class' => 'control-label')) }}
+    <div class="row">
+        <div class="col-sm-6">
+            {{ Form::select('photos_permitted', array(false => 'No', true => 'Yes'), $booking->photos_permitted, array ('class' => 'form-control')) }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group {{ $errors->has('outings_permitted') ? 'has-error' : '' }}">
+    {{ Form::label('outings_permitted', 'Outings permitted', array ('class' => 'control-label')) }}
+    <div class="row">
+        <div class="col-sm-6">
+            {{ Form::select('outings_permitted', array(false => 'No', true => 'Yes'), $booking->outings_permitted, array ('class' => 'form-control')) }}
+        </div>
+    </div>
+</div>
+
 <div class="form-group {{ $errors->has('notes') ? 'has-error' : '' }}">
     {{ Form::label('notes', 'Notes', array ('class' => 'control-label')) }}
     <div class="row">

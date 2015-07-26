@@ -20,6 +20,12 @@
         <dt>Group</dt>
         <dd>{{{ $booking->group_number }}}</dd>
 
+        <dt>Photos permitted</dt>
+        <dd><span class="label label-{{{ $booking->photos_permitted ? 'success' : 'danger' }}}">{{{ $booking->photos_permitted ? 'Yes' : 'No' }}}</span></dd>
+
+        <dt>Outings permitted</dt>
+        <dd><span class="label label-{{{ $booking->outings_permitted ? 'success' : 'danger' }}}">{{{ $booking->outings_permitted ? 'Yes' : 'No' }}}</span></dd>
+
         <dt>Contact name</dt>
         <dd>{{{ $booking->contact_name }}}</dd>
 

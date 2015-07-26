@@ -36,6 +36,8 @@
             <th>Name</th>
             <th>School year<br/>&amp; age</th>
             <th>Contact details</th>
+            <th>Photos permitted</th>
+            <th>Outings permitted</th>
             <th>Activities</th>
             <th>Notes</th>
         </tr>
@@ -46,6 +48,8 @@
             <td>{{{ $registration->booking->first }}} {{{ $registration->booking->last }}}</td>
             <td>{{{ $registration->booking->school_year }}} ({{{ $registration->booking->age }}})</td>
             <td>{{{ $registration->contact_details() }}}</td>
+            <td>{{ $registration->photos_permitted ? 'Yes' : "<strong>No</strong>" }}</td>
+            <td>{{ $registration->outings_permitted ? 'Yes' : "<strong>No</strong>" }}</td>
             <td>{{{ $registration->booking->activities() }}}</td>
             <td>{{{ $registration->notes }}}</td>
         </tr>

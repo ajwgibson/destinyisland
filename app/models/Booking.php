@@ -7,7 +7,8 @@ class Booking extends Eloquent {
     protected $fillable = array(
         'first', 'last', 'school_year', 'age', 'group_number', 
         'activity_1', 'activity_2', 'activity_3', 
-        'contact_name', 'contact_number', 'notes');
+        'contact_name', 'contact_number', 'notes',
+        'photos_permitted', 'outings_permitted');
 
     public static $rules = array(
         'first'          => 'required|max:100',
@@ -110,6 +111,24 @@ class Booking extends Eloquent {
         
         if ($registration && $registration->notes) return $registration->notes;
         else return $this->notes;
+    }
+
+    // Returns the most recent photos permitted flag from daily registrations or the original from the booking
+    public function most_recent_photos_permitted()
+    {
+        $registration = $this->most_recent_registration();
+        
+        if ($registration) return $registration->photos_permitted;
+        else return $this->photos_permitted;
+    }
+
+    // Returns the most recent outings permitted flag from daily registrations or the original from the booking
+    public function most_recent_outings_permitted()
+    {
+        $registration = $this->most_recent_registration();
+        
+        if ($registration) return $registration->outings_permitted;
+        else return $this->outings_permitted;
     }
 
     // Returns today's registration for this booking (if any)
