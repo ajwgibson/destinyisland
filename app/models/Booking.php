@@ -5,7 +5,7 @@ class Booking extends Eloquent {
 	protected $table = 'bookings';
 
     protected $fillable = array(
-        'first', 'last', 'school_year', 'age', 'group_number', 
+        'first', 'last', 'school_year', 'age', 'group_name', 
         'activity_1', 'activity_2', 'activity_3', 
         'contact_name', 'contact_number', 'notes',
         'photos_permitted', 'outings_permitted');
@@ -15,7 +15,7 @@ class Booking extends Eloquent {
         'last'           => 'required|max:100',
         'school_year'    => 'required|max:10',
         'age'            => 'required|integer',
-        'group_number'   => 'required|max:10',
+        'group_name'     => 'required|max:25',
         'activity_1'     => 'required|max:100',
         'activity_2'     => 'required|max:100',
         'activity_3'     => 'required|max:100',

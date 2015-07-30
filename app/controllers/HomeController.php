@@ -11,10 +11,10 @@ class HomeController extends BaseController {
 					->join('bookings', 'registrations.booking_id', '=', 'bookings.id')
 					->select(
 						DB::raw(
-							'bookings.group_number, count(registrations.id) as registered'))
-					->groupBy('bookings.group_number')
+							'bookings.group_name, count(registrations.id) as registered'))
+					->groupBy('bookings.group_name')
 					->where(DB::raw('DATE(registrations.created_at)'), DB::raw('CURDATE()'))
-					->orderBy('bookings.group_number')
+					->orderBy('bookings.group_name')
 					->get();
 
 		$this->layout->content = 

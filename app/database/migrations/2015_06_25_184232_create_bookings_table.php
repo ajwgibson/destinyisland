@@ -20,9 +20,15 @@ class CreateBookingsTable extends Migration {
 			$table->string('last', 100);
 			$table->string('school_year', 10)->nullable();
 			$table->integer('age')->unsigned()->nullable();
+			$table->string('group_name', 25)->nullable();
+			$table->string('activity_1', 100)->nullable();
+			$table->string('activity_2', 100)->nullable();
+			$table->string('activity_3', 100)->nullable();
+			$table->string('contact_name',  100)->nullable();
+			$table->string('contact_number', 20)->nullable();
+			$table->boolean('photos_permitted')->nullable();
+			$table->boolean('outings_permitted')->nullable();
 			$table->string('notes')->nullable();
-			$table->string('activity', 100)->nullable();
-			$table->string('group_number', 10)->nullable();
 
 			$table->timestamps();
 		});

@@ -50,7 +50,7 @@
         <div class="col-sm-3">
 
             <div class="form-group">
-                {{ Form::label('filter_group', 'Group number', array ('class' => 'control-label')) }}
+                {{ Form::label('filter_group', 'Group', array ('class' => 'control-label')) }}
                 <div>
                     {{ Form::select('filter_group', $groups, $filter_group, array ('class' => 'form-control')) }}
                 </div>
@@ -111,7 +111,7 @@
 			<td>{{{ $booking->age }}}</td>
 			<td>{{{ $booking->contact_details() }}}</td>
             <td>{{{ $booking->activities() }}}</td>
-			<td>{{{ $booking->group_number }}}</td>
+			<td>{{{ $booking->group_name }}}</td>
             <td>{{ link_to_route(
                     'booking.show', 
                     'Show details', 

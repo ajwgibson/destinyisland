@@ -12,12 +12,12 @@ class PrintoutController extends BaseController {
             Registration::join('bookings', 'registrations.booking_id', '=', 'bookings.id')
                 ->select('registrations.*')
                 ->where(DB::raw('DAYNAME(registrations.created_at)'), '=', $day)
-                ->where('bookings.group_number', $group)
+                ->where('bookings.group_name', $group)
                 ->orderBy('bookings.first')
                 ->orderBy('bookings.last')
                 ->get();
 
-        $groups = Booking::distinct('group_number')->orderBy('group_number')->lists('group_number', 'group_number');
+        $groups = Booking::distinct('group_name')->orderBy('group_name')->lists('group_name', 'group_name');
 
         $this->layout->content = 
             View::make('printouts.index')

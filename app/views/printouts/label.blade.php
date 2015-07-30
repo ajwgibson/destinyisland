@@ -3,7 +3,7 @@
 	<dt>Name</dt>
 	<dd>{{{ $booking->name() }}}</dd>
 	<dt>Group</dt>
-	<dd>{{{ $booking->group_number }}}</dd>
+	<dd>{{{ $booking->group_name }}}</dd>
 	<dt>Activities</dt>
 	<dd>
 		{{{ $booking->activity_1 }}}<br/>
@@ -68,7 +68,7 @@
 					var label = dymo.label.framework.openLabelXml(data);
 
 					label.setObjectText("NAME", "{{{ $booking->label_name() }}}");
-			    	label.setObjectText("GROUP", "{{{ $booking->group_number }}}");
+			    	label.setObjectText("GROUP", "{{{ $booking->group_name }}}");
 			    	label.setObjectText("ACTIVITIES", "{{{ $booking->label_activities() }}}");
 
 			    	var options = dymo.label.framework.createLabelWriterPrintParamsXml({copies: 2});

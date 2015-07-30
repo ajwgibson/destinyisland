@@ -28,7 +28,7 @@
 <div class="col-xs-12">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title">Registration totals for today by group number</h3>
+			<h3 class="panel-title">Registration totals for today by group</h3>
 		</div>
 		<div class="panel-body">
 			<div class="col-md-4 col-sm-6">
@@ -37,7 +37,7 @@
 			<div class="col-md-3 col-sm-6">
 				<ul class="list-group">
 				@for ($i = 0; $i < count($registrations_by_group); $i++)
-				    <li class="list-group-item"><span style="background-color: {{{ $colours[$i % count($colours)] }}}; border-radius: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> Group {{{ $registrations_by_group[$i]->group_number }}} <span class="badge alert-info">{{{ $registrations_by_group[$i]->registered }}}</span></li>
+				    <li class="list-group-item"><span style="background-color: {{{ $colours[$i % count($colours)] }}}; border-radius: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> {{{ $registrations_by_group[$i]->group_name }}} <span class="badge alert-info">{{{ $registrations_by_group[$i]->registered }}}</span></li>
 				@endfor
 				</ul>
 			</div>
@@ -100,7 +100,7 @@
 	@for ($i = 0; $i < count($registrations_by_group); $i++)
 		{
 	    	value: {{{ $registrations_by_group[$i]->registered }}},
-	    	label: '{{{ $registrations_by_group[$i]->group_number }}}',
+	    	label: '{{{ $registrations_by_group[$i]->group_name }}}',
 	    	color: '{{{ $colours[$i % count($colours)] }}}',
 	    	highlight: ColorLuminance('{{{ $colours[$i % count($colours)] }}}', 0.2)
 		},

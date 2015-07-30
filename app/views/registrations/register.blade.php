@@ -50,7 +50,7 @@
                                 <dt>Chosen activities</dt>
                                 <dd>{{{ $booking->activity_1 }}}, {{{ $booking->activity_2 }}}, {{{ $booking->activity_3 }}}</dd>
                                 <dt>Group</dt>
-                                <dd>{{{ $booking->group_number }}}</dd>
+                                <dd>{{{ $booking->group_name }}}</dd>
                             </dl>
                         </div>
         						
@@ -108,14 +108,14 @@
 
                             <div class="form-group">
                                 {{ Form::label('photos_permitted', 'Photos permitted', array ('class' => 'col-sm-4 control-label')) }}
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     {{ Form::select('photos_permitted', array(false => 'No', true => 'Yes'), $booking->photos_permitted, array ('class' => 'form-control')) }}
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 {{ Form::label('outings_permitted', 'Outings permitted', array ('class' => 'col-sm-4 control-label')) }}
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     {{ Form::select('outings_permitted', array(false => 'No', true => 'Yes'), $booking->outings_permitted, array ('class' => 'form-control')) }}
                                 </div>
                             </div>

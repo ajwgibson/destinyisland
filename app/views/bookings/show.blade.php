@@ -18,7 +18,7 @@
         <dd>{{{ $booking->activity_3 }}}</dd>
 
         <dt>Group</dt>
-        <dd>{{{ $booking->group_number }}}</dd>
+        <dd>{{{ $booking->group_name }}}</dd>
 
         <dt>Photos permitted</dt>
         <dd><span class="label label-{{{ $booking->photos_permitted ? 'success' : 'danger' }}}">{{{ $booking->photos_permitted ? 'Yes' : 'No' }}}</span></dd>

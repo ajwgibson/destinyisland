@@ -20,6 +20,8 @@ class CreateRegistrationsTable extends Migration {
 			$table->string('contact_name',  100)->nullable();
 			$table->string('contact_number', 20)->nullable();
 			$table->text('notes')->nullable();
+			$table->boolean('photos_permitted')->nullable();
+			$table->boolean('outings_permitted')->nullable();
 
 			$table->timestamps();
 

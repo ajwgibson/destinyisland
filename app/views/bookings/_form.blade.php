@@ -37,11 +37,11 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has('group_number') ? 'has-error' : '' }}">
-    {{ Form::label('group_number', 'Group', array ('class' => 'control-label required')) }}
+<div class="form-group {{ $errors->has('group_name') ? 'has-error' : '' }}">
+    {{ Form::label('group_name', 'Group', array ('class' => 'control-label required')) }}
     <div class="row">
         <div class="col-sm-6">
-            {{ Form::text('group_number', $booking->group_number, array ('class' => 'form-control')) }}
+            {{ Form::text('group_name', $booking->group_name, array ('class' => 'form-control')) }}
         </div>
     </div>
 </div>

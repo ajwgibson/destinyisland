@@ -30,7 +30,7 @@ class BookingController extends BaseController {
         }
 
         if (!(empty($filter_group))) {
-            $bookings = $bookings->where('group_number', $filter_group);
+            $bookings = $bookings->where('group_name', $filter_group);
             $filtered = true;
         }
 
@@ -42,7 +42,7 @@ class BookingController extends BaseController {
                         + Booking::distinct('activity_3')->orderBy('activity_3')->lists('activity_3', 'activity_3');
 
         $groups = array( '' => 'Select a group...' ) 
-                        + Booking::distinct('group_number')->orderBy('group_number')->lists('group_number', 'group_number');
+                        + Booking::distinct('group_name')->orderBy('group_name')->lists('group_name', 'group_name');
 
 		$this->layout->content = 
 			View::make('bookings.index')

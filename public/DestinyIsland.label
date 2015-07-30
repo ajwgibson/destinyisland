@@ -83,16 +83,16 @@ FOOTBALL</String>
 			<Rotation>Rotation0</Rotation>
 			<IsMirrored>False</IsMirrored>
 			<IsVariable>True</IsVariable>
-			<HorizontalAlignment>Center</HorizontalAlignment>
+			<HorizontalAlignment>Right</HorizontalAlignment>
 			<VerticalAlignment>Bottom</VerticalAlignment>
 			<TextFitMode>ShrinkToFit</TextFitMode>
 			<UseFullFontHeight>True</UseFullFontHeight>
 			<Verticalized>False</Verticalized>
 			<StyledText>
 				<Element>
-					<String>3</String>
+					<String>Blueberries</String>
 					<Attributes>
-						<Font Family="Arial" Size="22" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+						<Font Family="Arial" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
 						<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />
 					</Attributes>
 				</Element>
@@ -100,10 +100,10 @@ FOOTBALL</String>
 			<ShowBarcodeFor9DigitZipOnly>False</ShowBarcodeFor9DigitZipOnly>
 			<BarcodePosition>AboveAddress</BarcodePosition>
 			<LineFonts>
-				<Font Family="Arial" Size="22" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+				<Font Family="Arial" Size="14" Bold="True" Italic="False" Underline="False" Strikeout="False" />
 			</LineFonts>
 		</AddressObject>
-		<Bounds X="4215" Y="1428" Width="720" Height="512" />
+		<Bounds X="3015" Y="1578" Width="1920" Height="362" />
 	</ObjectInfo>
 	<ObjectInfo>
 		<ImageObject>
