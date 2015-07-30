@@ -71,7 +71,9 @@
 			    	label.setObjectText("GROUP", "{{{ $booking->group_number }}}");
 			    	label.setObjectText("ACTIVITIES", "{{{ $booking->label_activities() }}}");
 
-			    	label.print(printers[0].name);
+			    	var options = dymo.label.framework.createLabelWriterPrintParamsXml({copies: 2});
+
+			    	label.print(printers[0].name, options);
 
 			    	window.location.replace('{{ rawurldecode($return_url) }}');
 				},
