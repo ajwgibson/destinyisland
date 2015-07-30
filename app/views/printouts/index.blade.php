@@ -1,5 +1,5 @@
 
-<h2 class="visible-print">Group {{{ $group }}}, {{{ $day }}}</h2>
+<h2 class="visible-print">{{{ $group }}}, {{{ $day }}}</h2>
 
 <div class="hidden-print">
 
@@ -50,11 +50,7 @@
             <td>{{{ $registration->contact_details() }}}</td>
             <td>{{ $registration->photos_permitted ? 'Yes' : "<strong>No</strong>" }}</td>
             <td>{{ $registration->outings_permitted ? 'Yes' : "<strong>No</strong>" }}</td>
-            <td>
-                {{{ $registration->booking->activity_1 }}}<br/>
-                {{{ $registration->booking->activity_2 }}}<br/>
-                {{{ $registration->booking->activity_3 }}}
-            </td>
+            <td>{{{ $registration->booking->activities() }}}</td>
             <td>{{{ $registration->notes }}}</td>
         </tr>
     @endforeach
