@@ -69,7 +69,7 @@
 
 					label.setObjectText("NAME", "{{{ $booking->label_name() }}}");
 			    	label.setObjectText("GROUP", "{{{ $booking->group_name }}}");
-			    	label.setObjectText("ACTIVITIES", "{{{ $booking->label_activities() }}}");
+			    	label.setObjectText("ACTIVITIES", "{{ $booking->label_activities() }}");
 
 			    	var options = dymo.label.framework.createLabelWriterPrintParamsXml({copies: 2});
 
