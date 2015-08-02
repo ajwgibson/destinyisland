@@ -45,4 +45,11 @@ class PrintoutController extends BaseController {
                     ->with('return_url', $return_url);
     }
 
+    public function printLeadersLabel()
+    {
+        $this->layout->with('subtitle', 'print a leader label');
+        $this->layout->content = 
+            View::make('printouts.leaders-label');
+    }
+
 }

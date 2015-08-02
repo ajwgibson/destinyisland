@@ -46,6 +46,7 @@
                         <li class="">{{ link_to_route('printout', 'PRINT-OUT') }}</li>
                         <li class="">{{ link_to_route('registrations', 'REGISTRATIONS') }}</li>
                         <li class="">{{ link_to_route('bookings', 'BOOKINGS') }}</li>
+                        <li class="">{{ link_to_route('printLeadersLabel', 'LEADER LABEL') }}</li>
                     </ul>
                 </div>
             </div>

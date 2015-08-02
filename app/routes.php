@@ -27,4 +27,6 @@ Route::group(array('before' => 'auth.basic'), function()
     Route::post('doPrintout',              array('as' => 'doPrintout', 'uses' => 'PrintoutController@doPrintout'));
     
     Route::get('printLabel/{booking_id}/{return_url}',  array('as' => 'printLabel', 'uses' => 'PrintoutController@printLabel'));
+    
+    Route::get('printLeadersLabel',  array('as' => 'printLeadersLabel', 'uses' => 'PrintoutController@printLeadersLabel'));
 });
