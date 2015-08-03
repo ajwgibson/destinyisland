@@ -81,7 +81,7 @@
         <tbody>
             @foreach($booking->registrations->sortBy('created_at') as $registration)
                 <tr>
-                    <td>{{{ $registration->created_at->format('l jS F, g:sa') }}}</td>
+                    <td>{{{ $registration->created_at->timezone('Europe/London')->format('l jS F, g:ia') }}}</td>
                     <td>{{{ $registration->contact_details() }}}</td>
                     <td>{{ nl2br($registration->notes) }}</td>
                     <td>

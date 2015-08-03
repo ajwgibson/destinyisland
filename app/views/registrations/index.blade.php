@@ -75,7 +75,7 @@
 			<td>{{{ $registration->booking->first }}} {{{ $registration->booking->last }}}</td>
             <td>{{{ $registration->contact_name }}} ({{{ $registration->contact_number }}})</td>
 			<td>{{{ $registration->booking->group_name }}}</td>
-			<td>{{{ $registration->created_at }}}</td>
+			<td>{{{ $registration->created_at->timezone('Europe/London') }}}</td>
             <td>{{ link_to_route(
                     'registration.show', 
                     'Show details', 

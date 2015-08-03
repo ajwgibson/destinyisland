@@ -3,7 +3,7 @@
     <dl class="dl-horizontal">
         
         <dt>Registration date</dt>
-        <dd>{{{ $registration->created_at->format('l jS F, g:sa') }}}</dd>
+        <dd>{{{ $registration->created_at->timezone('Europe/London')->format('l jS F, g:ia') }}}</dd>
 
         <dt>Contact name</dt>
         <dd>{{{ $registration->contact_name }}}</dd>
