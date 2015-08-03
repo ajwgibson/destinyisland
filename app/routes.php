@@ -10,9 +10,11 @@ Route::group(array('before' => 'auth.basic'), function()
 {
     Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 
-    Route::get('bookings',             array('as' => 'bookings',             'uses' => 'BookingController@index'));
-    Route::post('bookings/filter',     array('as' => 'bookings.filter',      'uses' => 'BookingController@filter'));
-    Route::get('bookings/resetfilter', array('as' => 'bookings.resetfilter', 'uses' => 'BookingController@resetFilter'));
+    Route::get('bookings',                array('as' => 'bookings',                'uses' => 'BookingController@index'));
+    Route::post('bookings/filter',        array('as' => 'bookings.filter',         'uses' => 'BookingController@filter'));
+    Route::get('bookings/resetfilter',    array('as' => 'bookings.resetfilter',    'uses' => 'BookingController@resetFilter'));
+    Route::get('bookings/exportOriginal', array('as' => 'bookings.exportOriginal', 'uses' => 'BookingController@exportOriginal'));
+    Route::get('bookings/exportLatest',   array('as' => 'bookings.exportLatest',   'uses' => 'BookingController@exportLatest'));
     Route::resource('booking', 'BookingController');
     
     Route::get('register',                  array('as' => 'register',                  'uses' => 'RegistrationController@register'));

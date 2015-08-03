@@ -2,6 +2,18 @@
 
 <div>
     {{ link_to_route('booking.create', 'Add a new booking', array(), array('class' => 'btn btn-primary')) }}
+
+    {{ link_to_route(
+        'bookings.exportOriginal', 
+        'Export original booking data to CSV', 
+        $parameters = array( ), 
+        $attributes = array( 'class' => 'btn btn-info' ) ) }}
+
+        {{ link_to_route(
+        'bookings.exportLatest', 
+        'Export latest booking data to CSV', 
+        $parameters = array( ), 
+        $attributes = array( 'class' => 'btn btn-success' ) ) }}
 </div>  
 
 <div class="pull-right">

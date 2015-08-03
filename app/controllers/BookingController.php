@@ -197,4 +197,42 @@ class BookingController extends BaseController {
         return Redirect::route('booking.index');
     }
 
+    /**
+     * Exports the original booking data ignoring any changes recorded at registration.
+     */
+    public function exportOriginal()
+    {
+        $bookings = Booking::all();
+        
+        $view = View::make('bookings.export')->with('bookings', $bookings);
+
+        return Response::make($view)
+                ->header('Content-Type', 'text/csv')
+                ->header('Content-Disposition', "attachment; filename='bookings-original.csv'");
+    }
+
+    /**
+     * Exports the booking data including any changes recorded at registration.
+     */
+    public function exportLatest()
+    {
+        $bookings = Booking::all();
+
+        $bookings->each(
+            function($booking) {
+                $booking->contact_name = $booking->most_recent_contact_name();
+                $booking->contact_number = $booking->most_recent_contact_number();
+                $booking->notes = $booking->most_recent_notes();
+                $booking->photos_permitted = $booking->most_recent_photos_permitted();
+                $booking->outings_permitted = $booking->most_recent_outings_permitted();
+                return $booking;
+            });
+        
+        $view = View::make('bookings.export')->with('bookings', $bookings);
+
+        return Response::make($view)
+                ->header('Content-Type', 'text/csv')
+                ->header('Content-Disposition', "attachment; filename='bookings-latest.csv'");
+    }
+
 }
