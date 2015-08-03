@@ -43,7 +43,13 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">{{ link_to_route('home', 'HOME') }}</li>
                         <li class="">{{ link_to_route('register', 'REGISTER') }}</li>
-                        <li class="">{{ link_to_route('printout', 'PRINT-OUT') }}</li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">DAILY PRINT-OUTS <b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                            <li class="">{{ link_to_route('printout.group', 'Groups') }}</li>
+                            <li class="">{{ link_to_route('printout.activity', 'Activities') }}</li>
+                          </ul>
+                        </li>
                         <li class="">{{ link_to_route('registrations', 'REGISTRATIONS') }}</li>
                         <li class="">{{ link_to_route('bookings', 'BOOKINGS') }}</li>
                         <li class="">{{ link_to_route('printLeadersLabel', 'LEADER LABEL') }}</li>

@@ -25,8 +25,11 @@ Route::group(array('before' => 'auth.basic'), function()
     Route::get('registrations/resetfilter', array('as' => 'registrations.resetfilter', 'uses' => 'RegistrationController@resetFilter'));
     Route::resource('registration', 'RegistrationController');
 
-    Route::get('printout/{day?}/{group?}', array('as' => 'printout',   'uses' => 'PrintoutController@index'));
-    Route::post('doPrintout',              array('as' => 'doPrintout', 'uses' => 'PrintoutController@doPrintout'));
+    Route::get('groupPrintout/{day?}/{group?}', array('as' => 'printout.group',   'uses' => 'PrintoutController@groupPrintout'));
+    Route::post('doPrintout',                   array('as' => 'doGroupPrintout',  'uses' => 'PrintoutController@doGroupPrintout'));
+
+    Route::get('activityPrintout/{day?}/{activity?}', array('as' => 'printout.activity',   'uses' => 'PrintoutController@activityPrintout'));
+    Route::post('doActivityPrintout',                 array('as' => 'doActivityPrintout',  'uses' => 'PrintoutController@doActivityPrintout'));
     
     Route::get('printLabel/{booking_id}/{return_url}',  array('as' => 'printLabel', 'uses' => 'PrintoutController@printLabel'));
     

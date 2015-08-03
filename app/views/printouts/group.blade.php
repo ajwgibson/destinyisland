@@ -3,7 +3,7 @@
 
 <div class="hidden-print">
 
-    {{ Form::open(array('route' => 'doPrintout', 'class' => 'form-inline')) }}
+    {{ Form::open(array('route' => 'doGroupPrintout', 'class' => 'form-inline')) }}
 
     <div class="form-group">
         {{ Form::label('day', 'Day', array ('class' => '')) }}
