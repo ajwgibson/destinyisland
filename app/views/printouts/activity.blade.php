@@ -12,7 +12,7 @@
                 array(
                     'Monday' => 'Monday', 
                     'Tuesday' => 'Tuesday',
-                    'wednesday' => 'Wednesday',
+                    'Wednesday' => 'Wednesday',
                     ), 
                 $day, 
                 array ('class' => 'form-control')) }}

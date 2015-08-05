@@ -12,7 +12,7 @@
                 array(
                     'Monday' => 'Monday', 
                     'Tuesday' => 'Tuesday',
-                    'wednesday' => 'Wednesday',
+                    'Wednesday' => 'Wednesday',
                     'Thursday' => 'Thursday',
                     'Friday' => 'Friday',
                     ), 
